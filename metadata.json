@@ -1,0 +1,5 @@
+{
+  "name": "Furbo CS Decision Tree",
+  "description": "An interactive decision tree for Furbo customer service to quickly find pricing plans, links, and codes.",
+  "requestFramePermissions": []
+}
