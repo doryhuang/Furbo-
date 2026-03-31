@@ -8,10 +8,148 @@ import {
   CheckCircle2, 
   AlertCircle,
   Info,
-  ArrowLeft
+  ArrowLeft,
+  Users
 } from "lucide-react";
 import { furboDecisionTree } from "./data/decisionTree";
 import { Node, Result } from "./types";
+
+function LoyaltyChecker() {
+  const [plan, setPlan] = useState("none");
+  const [renewalCount, setRenewalCount] = useState(0);
+  const [regYears, setRegYears] = useState(0);
+  const [hadSub, setHadSub] = useState(false);
+  const [recentLogin, setRecentLogin] = useState(false);
+  const [active, setActive] = useState(false);
+  const [showDefs, setShowDefs] = useState(false);
+
+  const getTier = () => {
+    // 【鑽石 VIP】目前訂閱 STD / Premium (含 OST Pro) 方案，且已續約（或總訂閱年資）超過 2 次/年。
+    if ((plan === "STD" || plan === "Premium" || plan === "OST Pro") && renewalCount >= 2) {
+      return "鑽石 VIP (Diamond VIP)";
+    }
+    // 【黃金老友】目前訂閱 BSC (含 OST-Basic) 方案，且已續約超過 2 次/年（或月費連續訂閱達 24 個月）。
+    if ((plan === "BSC" || plan === "OST Basic") && renewalCount >= 2) {
+      return "黃金老友 (Gold Friend)";
+    }
+    // 【沉睡金礦】曾有訂閱，目前非訂閱狀態，註冊時間 > 1.5 年且近期有登入。
+    if (plan === "none" && hadSub && regYears >= 1.5 && recentLogin) {
+      return "沉睡金礦 (Sleeping Gold Mine)";
+    }
+    // 【鐵桿粉絲】從未/極少訂閱，註冊時間 > 3 年且目前活躍。
+    if (plan === "none" && regYears >= 3 && active) {
+      return "鐵桿粉絲 (Iron Fan)";
+    }
+    return "一般/潛力用戶";
+  };
+
+  const tier = getTier();
+
+  const renewalOptions = [0, 1, 2, 3, 4, "5+"];
+  const regYearOptions = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, "5+"];
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      className="p-6 bg-white rounded-xl border border-slate-200 shadow-xl space-y-4 mb-8"
+    >
+      <div className="flex justify-between items-center">
+        <h3 className="text-lg font-bold text-slate-800 flex items-center gap-2">
+          <Users size={20} className="text-blue-500" />
+          2026 忠實用戶分級計算器
+        </h3>
+        <button 
+          onClick={() => setShowDefs(!showDefs)}
+          className="text-xs font-medium text-blue-600 hover:underline flex items-center gap-1"
+        >
+          <Info size={14} />
+          查看定義
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {showDefs && (
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="overflow-hidden bg-slate-50 rounded-lg p-4 text-xs text-slate-600 space-y-2 border border-slate-100"
+          >
+            <p><strong>鑽石 VIP:</strong> 訂閱 STD/Premium (含 OST Pro)，續約/年資 ≥ 2 次/年。</p>
+            <p><strong>黃金老友:</strong> 訂閱 BSC (含 OST-Basic)，續約 ≥ 2 次/年 (或月費連續 24 個月)。</p>
+            <p><strong>沉睡金礦:</strong> 曾有訂閱，目前無，註冊 &gt; 1.5 年且近期有登入。</p>
+            <p><strong>鐵桿粉絲:</strong> 從未/極少訂閱，註冊 &gt; 3 年且目前活躍。</p>
+            <p><strong>一般/潛力用戶:</strong> 不符合上述條件者。</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-slate-600">目前方案</label>
+          <select 
+            value={plan} 
+            onChange={(e) => setPlan(e.target.value)}
+            className="w-full p-2 border border-slate-200 rounded-md text-sm outline-none focus:border-blue-500"
+          >
+            <option value="none">無訂閱</option>
+            <option value="BSC">BSC / OST Basic</option>
+            <option value="STD">STD / OST Pro</option>
+            <option value="Premium">Premium</option>
+          </select>
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-slate-600">續約次數 / 訂閱年資</label>
+          <select 
+            value={renewalCount} 
+            onChange={(e) => setRenewalCount(e.target.value === "5+" ? 5 : Number(e.target.value))}
+            className="w-full p-2 border border-slate-200 rounded-md text-sm outline-none focus:border-blue-500"
+          >
+            {renewalOptions.map(opt => (
+              <option key={opt} value={opt}>{opt}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-slate-600">註冊時間 (年)</label>
+          <select 
+            value={regYears} 
+            onChange={(e) => setRegYears(e.target.value === "5+" ? 5 : Number(e.target.value))}
+            className="w-full p-2 border border-slate-200 rounded-md text-sm outline-none focus:border-blue-500"
+          >
+            {regYearOptions.map(opt => (
+              <option key={opt} value={opt}>{opt}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-4 pt-6">
+          <label className="flex items-center gap-2 text-sm cursor-pointer">
+            <input type="checkbox" checked={hadSub} onChange={(e) => setHadSub(e.target.checked)} />
+            曾有訂閱
+          </label>
+          <label className="flex items-center gap-2 text-sm cursor-pointer">
+            <input type="checkbox" checked={recentLogin} onChange={(e) => setRecentLogin(e.target.checked)} />
+            近期登入
+          </label>
+          <label className="flex items-center gap-2 text-sm cursor-pointer">
+            <input type="checkbox" checked={active} onChange={(e) => setActive(e.target.checked)} />
+            目前活躍
+          </label>
+        </div>
+      </div>
+
+      <div className="mt-6 p-4 bg-blue-50 border border-blue-100 rounded-lg text-center">
+        <p className="text-xs text-blue-500 font-bold uppercase tracking-widest mb-1">判定結果</p>
+        <p className="text-xl font-black text-blue-700">{tier}</p>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function App() {
   const [currentNodeId, setCurrentNodeId] = useState<string>(furboDecisionTree.startNodeId);
@@ -19,6 +157,7 @@ export default function App() {
   const [finalResult, setFinalResult] = useState<Result | null>(null);
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [category, setCategory] = useState<string | null>(null);
+  const [showChecker, setShowChecker] = useState(false);
 
   const currentNode = furboDecisionTree.nodes[currentNodeId];
 
@@ -61,6 +200,40 @@ export default function App() {
     setCopiedField(field);
     setTimeout(() => setCopiedField(null), 2000);
   };
+
+  const generateDefaultMacro = useCallback((result: Result) => {
+    const lines = [
+      "您好，感謝您的聯繫。",
+      "針對您的需求，我們建議的方案如下：",
+      `方案：${result.plan}`,
+      `對應裝置：${result.device}`,
+    ];
+
+    if (result.link) {
+      lines.push(`購買連結：${result.link}`);
+    }
+
+    if (result.deviceLinks) {
+      lines.push("各機型方案連結：");
+      result.deviceLinks.forEach(dl => {
+        lines.push(`- ${dl.name}: ${dl.url}`);
+      });
+    }
+
+    if (result.code) {
+      lines.push(`折扣碼 (Code)：\n${result.code}`);
+    }
+
+    if (result.notes && result.notes.length > 0) {
+      lines.push("\n備註事項：");
+      result.notes.forEach(note => {
+        lines.push(`• ${note}`);
+      });
+    }
+
+    lines.push("\n如有任何問題，歡迎隨時與我們聯繫。");
+    return lines.join('\n');
+  }, []);
 
   const copyAll = () => {
     if (!finalResult) return;
@@ -136,14 +309,27 @@ export default function App() {
             </h1>
             <p className="text-slate-500 text-sm">快速決策價格方案與代碼使用</p>
           </div>
-          <button 
-            onClick={handleReset}
-            className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors shadow-sm"
-          >
-            <RotateCcw size={16} />
-            重置 (Reset)
-          </button>
+          <div className="flex items-center gap-2">
+            <button 
+              onClick={() => setShowChecker(!showChecker)}
+              className={`flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors shadow-sm ${showChecker ? 'ring-2 ring-blue-500 border-blue-500' : ''}`}
+            >
+              <Users size={16} />
+              忠實分級
+            </button>
+            <button 
+              onClick={handleReset}
+              className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors shadow-sm"
+            >
+              <RotateCcw size={16} />
+              重置 (Reset)
+            </button>
+          </div>
         </header>
+
+        <AnimatePresence>
+          {showChecker && <LoyaltyChecker />}
+        </AnimatePresence>
 
         {/* Main Content */}
         <main className="relative">
@@ -332,6 +518,31 @@ export default function App() {
                       </div>
                     )}
                   </div>
+
+                  {/* Macro */}
+                  {finalResult && (
+                    <div className="space-y-3">
+                      <label className="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                        <Copy size={14} />
+                        回覆範本 (Macro)
+                      </label>
+                      <div className="relative group">
+                        <textarea 
+                          readOnly 
+                          rows={Math.min(15, (finalResult.macro || generateDefaultMacro(finalResult)).split('\n').length + 1)}
+                          value={finalResult.macro || generateDefaultMacro(finalResult)} 
+                          className="w-full text-sm text-slate-600 bg-slate-50 p-4 rounded-lg border border-slate-200 outline-none resize-none font-sans"
+                        />
+                        <button 
+                          onClick={() => copyToClipboard(finalResult.macro || generateDefaultMacro(finalResult), 'macro')}
+                          className={`absolute top-3 right-3 p-2 bg-white shadow-sm border border-slate-200 rounded-md text-slate-400 hover:${themeClasses.text} hover:${themeClasses.border} transition-all`}
+                          title="複製範本"
+                        >
+                          {copiedField === 'macro' ? <CheckCircle2 size={18} className="text-green-500" /> : <Copy size={18} />}
+                        </button>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Notes */}
                   {finalResult.notes && finalResult.notes.length > 0 && (

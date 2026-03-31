@@ -14,6 +14,7 @@ export interface Result {
   device: string;
   link?: string;
   code?: string;
+  macro?: string;
   notes?: string[];
   deviceLinks?: DeviceLink[];
 }

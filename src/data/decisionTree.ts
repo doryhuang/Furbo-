@@ -51,6 +51,7 @@ export const furboDecisionTree: DecisionTree = {
             link: "https://reurl.cc/6GVjYy",
             code: "FC3010（訂閱費 7 折）",
             notes: ["📌 需在 Webconsole 操作", "🎁 方案：買一年訂閱、免費換整新機"],
+            macro: "親愛的用戶您好，\n\n感謝您聯繫 Furbo 客服。\n針對您的需求，我們建議以下方案：\n\n方案內容：Webconsole 買一年訂閱、免費換整新機\n設備：整新機\n購買連結：https://reurl.cc/6GVjYy\nCode：FC3010（訂閱費 7 折）\n\n若有任何問題，歡迎隨時與我們聯繫。\nFurbo 客服團隊 敬上"
           },
         },
         {
@@ -71,6 +72,7 @@ export const furboDecisionTree: DecisionTree = {
               "• Mini3: $799",
               "• Mini2: $429"
             ],
+            macro: "親愛的用戶您好，\n\n感謝您聯繫 Furbo 客服。\n針對您的需求，我們建議以下方案：\n\n方案內容：提供 Faas 折扣連結\n設備：全新機\n\n若有任何問題，歡迎隨時與我們聯繫。\nFurbo 客服團隊 敬上"
           },
         },
         {
@@ -87,6 +89,7 @@ export const furboDecisionTree: DecisionTree = {
               "• Mini3: $2399",
               "• Mini2: $1899"
             ],
+            macro: "親愛的用戶您好，\n\n感謝您聯繫 Furbo 客服。\n針對您的需求，我們建議以下方案：\n\n方案內容：不買訂閱：提供官網全新機 SA 折扣\n設備：全新機\n購買連結：https://furbo.com/tw\nCode：FD3/FC3/M2: CSFRIEND (9折) / CSFAM (85折)\nM3: CSFRIEND3 (9折)\n\n若有任何問題，歡迎隨時與我們聯繫。\nFurbo 客服團隊 敬上"
           },
         },
       ],
@@ -111,6 +114,7 @@ export const furboDecisionTree: DecisionTree = {
               "📌 只能看到年以上方案",
               "補充：\n數字前兩碼=訂閱費折數\n數字後兩碼=Device折數"
             ],
+            macro: "親愛的用戶您好，\n\n感謝您聯繫 Furbo 客服。\n針對您的需求，我們建議以下方案：\n\n方案內容：提供 Faas 折扣連結\n設備：全新機\nCode：FC2010, FC2020, FC3010, FC3020\n\n若有任何問題，歡迎隨時與我們聯繫。\nFurbo 客服團隊 敬上"
           },
         },
         {
@@ -121,6 +125,7 @@ export const furboDecisionTree: DecisionTree = {
             link: "https://furbo.com/tw",
             code: "FD3/FC3/M2: CSFAM (85折)\nM3: CSINNER (88折)",
             notes: ["官網直接購買全新機"],
+            macro: "親愛的用戶您好，\n\n感謝您聯繫 Furbo 客服。\n針對您的需求，我們建議以下方案：\n\n方案內容：不買訂閱：提供官網全新機 SA 折扣\n設備：全新機\n購買連結：https://furbo.com/tw\nCode：FD3/FC3/M2: CSFAM (85折)\nM3: CSINNER (88折)\n\n若有任何問題，歡迎隨時與我們聯繫。\nFurbo 客服團隊 敬上"
           },
         },
       ],
@@ -144,13 +149,14 @@ export const furboDecisionTree: DecisionTree = {
             device: "整新機",
             notes: [
               "忠實用戶/年方案優惠",
-              "\n※忠實用戶：",
-              "OST：多機／單機兩年以上",
-              "NST 標準：2台以上",
-              "NST 高級：不限台數",
-              "沒訂閱：多台／一台攝影機但用了三年以上",
-              "二代：可以用EOL 折扣碼"
+              "\n※ 2026 忠實用戶分級：",
+              "【鑽石 VIP】訂閱 STD / Premium (含 OST Pro)，續約/總年資 > 2 次/年。",
+              "【黃金老友】訂閱 BSC (含 OST-Basic)，續約 > 2 次/年 (或月費連續 24 個月)。",
+              "【沉睡金礦】曾有訂閱，目前非訂閱，註冊 > 1.5 年且近期有登入。",
+              "【鐵桿粉絲】從未/極少訂閱，註冊 > 3 年且目前活躍。",
+              "【一般/潛力用戶】不符合上述條件者。"
             ],
+            macro: "親愛的用戶您好，\n\n感謝您對 Furbo 的長期支持！經查詢您的帳號符合我們的專屬優惠資格。\n為了回饋您的愛護，我們特別為您提供以下方案：\n\n方案內容：不用訂閱、免費換整新機\n設備：整新機\n\n若有任何問題，歡迎隨時與我們聯繫。\nFurbo 客服團隊 敬上"
           },
         },
       ],
@@ -166,13 +172,14 @@ export const furboDecisionTree: DecisionTree = {
             device: "全新機",
             notes: [
               "目前無整新機，提供全新機",
-              "\n※忠實用戶：",
-              "OST：多機／單機兩年以上",
-              "NST 標準：2台以上",
-              "NST 高級：不限台數",
-              "沒訂閱：多台／一台攝影機但用了三年以上",
-              "二代：可以用EOL 折扣碼"
+              "\n※ 2026 忠實用戶分級：",
+              "【鑽石 VIP】訂閱 STD / Premium (含 OST Pro)，續約/總年資 > 2 次/年。",
+              "【黃金老友】訂閱 BSC (含 OST-Basic)，續約 > 2 次/年 (或月費連續 24 個月)。",
+              "【沉睡金礦】曾有訂閱，目前非訂閱，註冊 > 1.5 年且近期有登入。",
+              "【鐵桿粉絲】從未/極少訂閱，註冊 > 3 年且目前活躍。",
+              "【一般/潛力用戶】不符合上述條件者。"
             ],
+            macro: "親愛的用戶您好，\n\n感謝您對 Furbo 的長期支持！經查詢您的帳號符合我們的專屬優惠資格。\n為了回饋您的愛護，我們特別為您提供以下方案：\n\n方案內容：不用訂閱、免費換全新機\n設備：全新機\n\n若有任何問題，歡迎隨時與我們聯繫。\nFurbo 客服團隊 敬上"
           },
         },
       ],
@@ -197,6 +204,7 @@ export const furboDecisionTree: DecisionTree = {
             link: "https://reurl.cc/6GVjYy",
             code: "FC3010（訂閱費 7 折）",
             notes: ["📌 需在 Webconsole 操作", "🎁 方案：買一年訂閱、免費換整新機"],
+            macro: "親愛的用戶您好，\n\n感謝您聯繫 Furbo 客服。\n針對您的需求，我們建議以下方案：\n\n方案內容：Webconsole 買一年訂閱、免費換整新機\n設備：整新機\n購買連結：https://reurl.cc/6GVjYy\nCode：FC3010（訂閱費 7 折）\n\n若有任何問題，歡迎隨時與我們聯繫。\nFurbo 客服團隊 敬上"
           },
         },
         {
@@ -212,6 +220,7 @@ export const furboDecisionTree: DecisionTree = {
             ],
             code: "月: FC1010, FC1020 | 年: FC2010, FC2020, FC3010, FC3020",
             notes: ["補充：\n數字前兩碼=訂閱費折數\n數字後兩碼=Device折數"],
+            macro: "親愛的用戶您好，\n\n感謝您聯繫 Furbo 客服。\n針對您的需求，我們建議以下方案：\n\n方案內容：提供 Faas 折扣連結\n設備：全新機\nCode：月: FC1010, FC1020 | 年: FC2010, FC2020, FC3010, FC3020\n\n若有任何問題，歡迎隨時與我們聯繫。\nFurbo 客服團隊 敬上"
           },
         },
         {
@@ -222,6 +231,7 @@ export const furboDecisionTree: DecisionTree = {
             link: "https://furbo.com/tw",
             code: "FD3/FC3/M2: CSFRIEND (9折) / CSFAM (85折)\nM3: CSFRIEND3 (9折)",
             notes: ["📌 M3 Code: CSFRIEND3 (T3, T2) 設定底價 2399 (T1會用不了)"],
+            macro: "親愛的用戶您好，\n\n感謝您聯繫 Furbo 客服。\n針對您的需求，我們建議以下方案：\n\n方案內容：不買訂閱：提供官網全新機 SA 折扣\n設備：全新機\n購買連結：https://furbo.com/tw\nCode：FD3/FC3/M2: CSFRIEND (9折) / CSFAM (85折)\nM3: CSFRIEND3 (9折)\n\n若有任何問題，歡迎隨時與我們聯繫。\nFurbo 客服團隊 敬上"
           },
         },
       ],
@@ -243,6 +253,7 @@ export const furboDecisionTree: DecisionTree = {
             ],
             code: "月: FC1010, FC1020 | 年: FC2010, FC2020, FC3010, FC3020",
             notes: ["補充：\n數字前兩碼=訂閱費折數\n數字後兩碼=Device折數"],
+            macro: "親愛的用戶您好，\n\n感謝您聯繫 Furbo 客服。\n針對您的需求，我們建議以下方案：\n\n方案內容：提供 Faas 折扣連結\n設備：全新機\nCode：月: FC1010, FC1020 | 年: FC2010, FC2020, FC3010, FC3020\n\n若有任何問題，歡迎隨時與我們聯繫。\nFurbo 客服團隊 敬上"
           },
         },
         {
@@ -253,6 +264,7 @@ export const furboDecisionTree: DecisionTree = {
             link: "https://furbo.com/tw",
             code: "FD3/FC3/M2: CSFRIEND (9折) / CSFAM (85折)\nM3: CSFRIEND3 (9折)",
             notes: ["📌 M3 Code: CSFRIEND3 (T3, T2) 設定底價 2399 (T1會用不了)"],
+            macro: "親愛的用戶您好，\n\n感謝您聯繫 Furbo 客服。\n針對您的需求，我們建議以下方案：\n\n方案內容：不買訂閱：提供官網全新機 SA 折扣\n設備：全新機\n購買連結：https://furbo.com/tw\nCode：FD3/FC3/M2: CSFRIEND (9折) / CSFAM (85折)\nM3: CSFRIEND3 (9折)\n\n若有任何問題，歡迎隨時與我們聯繫。\nFurbo 客服團隊 敬上"
           },
         },
       ],
@@ -359,13 +371,14 @@ export const furboDecisionTree: DecisionTree = {
             device: "整新機",
             notes: [
               "忠實用戶/年方案優惠",
-              "\n※忠實用戶：",
-              "OST：多機／單機兩年以上",
-              "NST 標準：2台以上",
-              "NST 高級：不限台數",
-              "沒訂閱：多台／一台攝影機但用了三年以上",
-              "二代：可以用EOL 折扣碼"
+              "\n※ 2026 忠實用戶分級：",
+              "【鑽石 VIP】訂閱 STD / Premium (含 OST Pro)，續約/總年資 > 2 次/年。",
+              "【黃金老友】訂閱 BSC (含 OST-Basic)，續約 > 2 次/年 (或月費連續 24 個月)。",
+              "【沉睡金礦】曾有訂閱，目前非訂閱，註冊 > 1.5 年且近期有登入。",
+              "【鐵桿粉絲】從未/極少訂閱，註冊 > 3 年且目前活躍。",
+              "【一般/潛力用戶】不符合上述條件者。"
             ],
+            macro: "親愛的用戶您好，\n\n感謝您對 Furbo 的長期支持！經查詢您的帳號符合我們的專屬優惠資格。\n為了回饋您的愛護，我們特別為您提供以下方案：\n\n方案內容：不用訂閱、免費換整新機\n設備：整新機\n\n若有任何問題，歡迎隨時與我們聯繫。\nFurbo 客服團隊 敬上"
           },
         },
         {
@@ -377,13 +390,14 @@ export const furboDecisionTree: DecisionTree = {
             code: "FD3/FC3/M2: CSFRIEND (9折) / CSFAM (85折)\nM3: CSFRIEND3 (9折)",
             notes: [
               "📌 M3 Code: CSFRIEND3 (T3, T2) 設定底價 2399 (T1會用不了)",
-              "\n※忠實用戶：",
-              "OST：多機／單機兩年以上",
-              "NST 標準：2台以上",
-              "NST 高級：不限台數",
-              "沒訂閱：多台／一台攝影機但用了三年以上",
-              "二代：可以用EOL 折扣碼"
+              "\n※ 2026 忠實用戶分級：",
+              "【鑽石 VIP】訂閱 STD / Premium (含 OST Pro)，續約/總年資 > 2 次/年。",
+              "【黃金老友】訂閱 BSC (含 OST-Basic)，續約 > 2 次/年 (或月費連續 24 個月)。",
+              "【沉睡金礦】曾有訂閱，目前非訂閱，註冊 > 1.5 年且近期有登入。",
+              "【鐵桿粉絲】從未/極少訂閱，註冊 > 3 年且目前活躍。",
+              "【一般/潛力用戶】不符合上述條件者。"
             ],
+            macro: "親愛的用戶您好，\n\n感謝您對 Furbo 的長期支持！經查詢您的帳號符合我們的專屬優惠資格。\n為了回饋您的愛護，我們特別為您提供以下方案：\n\n方案內容：不買訂閱、官網全新 SA 折扣\n設備：全新機\n購買連結：https://furbo.com/tw\nCode：FD3/FC3/M2: CSFRIEND (9折) / CSFAM (85折)\nM3: CSFRIEND3 (9折)\n\n若有任何問題，歡迎隨時與我們聯繫。\nFurbo 客服團隊 敬上"
           },
         },
       ],
@@ -393,7 +407,7 @@ export const furboDecisionTree: DecisionTree = {
       question: "選擇方案 (兩台以上 / 年或忠實 / 沒整新)",
       options: [
         {
-          label: "1. 客服幫買並調整一年訂閱、付費換全新機",
+          label: "1. 客部幫買並調整一年訂閱、付費換全新機",
           result: {
             plan: "客服幫買並調整一年訂閱、付費換全新機",
             device: "全新機",
@@ -401,13 +415,14 @@ export const furboDecisionTree: DecisionTree = {
             notes: [
               "💰 加購價：\n狗/貓: $899\nMini3: $799\nMini2: $429",
               "＊SPF 開訂單／後台收款，避免 addon",
-              "\n※忠實用戶：",
-              "OST：多機／單機兩年以上",
-              "NST 標準：2台以上",
-              "NST 高級：不限台數",
-              "沒訂閱：多台／一台攝影機但用了三年以上",
-              "二代：可以用EOL 折扣碼"
+              "\n※ 2026 忠實用戶分級：",
+              "【鑽石 VIP】訂閱 STD / Premium (含 OST Pro)，續約/總年資 > 2 次/年。",
+              "【黃金老友】訂閱 BSC (含 OST-Basic)，續約 > 2 次/年 (或月費連續 24 個月)。",
+              "【沉睡金礦】曾有訂閱，目前非訂閱，註冊 > 1.5 年且近期有登入。",
+              "【鐵桿粉絲】從未/極少訂閱，註冊 > 3 年且目前活躍。",
+              "【一般/潛力用戶】不符合上述條件者。"
             ],
+            macro: "親愛的用戶您好，\n\n感謝您對 Furbo 的長期支持！經查詢您的帳號符合我們的專屬優惠資格。\n為了回饋您的愛護，我們特別為您提供以下方案：\n\n方案內容：客服幫買並調整一年訂閱、付費換全新機\n設備：全新機\n\n若有任何問題，歡迎隨時與我們聯繫。\nFurbo 客服團隊 敬上"
           },
         },
         {
@@ -419,13 +434,14 @@ export const furboDecisionTree: DecisionTree = {
             code: "FD3/FC3/M2: CSFAM (85折)\nM3: CSINNER (88折)",
             notes: [
               "官網直接購買全新機",
-              "\n※忠實用戶：",
-              "OST：多機／單機兩年以上",
-              "NST 標準：2台以上",
-              "NST 高級：不限台數",
-              "沒訂閱：多台／一台攝影機但用了三年以上",
-              "二代：可以用EOL 折扣碼"
+              "\n※ 2026 忠實用戶分級：",
+              "【鑽石 VIP】訂閱 STD / Premium (含 OST Pro)，續約/總年資 > 2 次/年。",
+              "【黃金老友】訂閱 BSC (含 OST-Basic)，續約 > 2 次/年 (或月費連續 24 個月)。",
+              "【沉睡金礦】曾有訂閱，目前非訂閱，註冊 > 1.5 年且近期有登入。",
+              "【鐵桿粉絲】從未/極少訂閱，註冊 > 3 年且目前活躍。",
+              "【一般/潛力用戶】不符合上述條件者。"
             ],
+            macro: "親愛的用戶您好，\n\n感謝您對 Furbo 的長期支持！經查詢您的帳號符合我們的專屬優惠資格。\n為了回饋您的愛護，我們特別為您提供以下方案：\n\n方案內容：不買訂閱、官網全新 SA 折扣\n設備：全新機\n購買連結：https://furbo.com/tw\nCode：FD3/FC3/M2: CSFAM (85折)\nM3: CSINNER (88折)\n\n若有任何問題，歡迎隨時與我們聯繫。\nFurbo 客服團隊 敬上"
           },
         },
       ],
